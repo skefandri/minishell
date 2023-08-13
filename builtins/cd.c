@@ -102,9 +102,9 @@ int	cd_cmd(char **args)
 	new_dir = getcwd(NULL, 0);
 	if (new_dir == NULL && original_dir == NULL)
 	{
-		write(2, "cd: error retrieving current directory:", 40);
-		write(2, " getcwd : cannot access parent directories: ", 45);
-		write(2, "No such file or directory\n", 27);
+		write(2, "cd: error retrieving current directory:", 39);
+		write(2, " getcwd : cannot access parent directories: ", 44);
+		write(2, "No such file or directory\n", 26);
 		return (-1);
 	}
 	set_pwd_old(envs, new_dir, original_dir);

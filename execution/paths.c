@@ -16,7 +16,9 @@ void	check_is_direct(char *cmd)
 {
 	if (stat_fun(cmd))
 	{
-		printf("./minishell %s: is a directory\n", cmd);
+		ft_putstr_fd("./minishell ", 2);
+		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(": is a directory\n", 2);
 		exit (126);
 	}
 }
@@ -41,7 +43,7 @@ char	*cmd_path(char **paths, char *cmd, int i)
 	if (!access(cmd, F_OK) && cmd[0] == '/'
 		&& stat_fun(cmd) == 0 && !access(cmd, X_OK))
 		return (cmd);
-	else
+	else if (ft_strchr(cmd, '/'))
 		check_is_direct(cmd);
 	if (ft_strrchr(cmd, '/') == 1)
 		error_check(2, cmd);

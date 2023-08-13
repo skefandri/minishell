@@ -36,9 +36,9 @@ void	ft_putstr_fd(char *s, int fd)
 void	printf_message(char *cmd)
 {
 	write(2, "exit\n", 5);
-	write(2, "minishell: exit: ", 18);
+	write(2, "minishell: exit: ", 17);
 	ft_putstr_fd(cmd, 2);
-	write(2, ": numeric argument required\n", 29);
+	write(2, ": numeric argument required\n", 28);
 	exit(255);
 }
 
@@ -81,7 +81,7 @@ void	exit_cmd(char **cmd)
 	if (cmd[2])
 	{
 		write(2, "exit\n", 5);
-		write(2, "minishell: exit: too many arguments\n", 37);
+		write(2, "minishell: exit: too many arguments\n", 36);
 		g_lob.exit_status = 1;
 		return ;
 	}

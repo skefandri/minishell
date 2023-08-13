@@ -31,8 +31,12 @@ int	contains_only_n(char *str)
 void	print_arguments(char **args, int k)
 {
 	int	i;
+	int	flag;
 
 	i = 0;
+	flag = 0;
+	if (!args[i])
+		flag = 1;
 	if (args[i])
 	{
 		printf("%s", args[i++]);
@@ -42,7 +46,7 @@ void	print_arguments(char **args, int k)
 			i++;
 		}
 	}
-	if (!i || k)
+	if ((!i || k) && flag == 0)
 		printf("\n");
 }
 

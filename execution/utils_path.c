@@ -53,16 +53,18 @@ void	error_check(int a, char *str)
 	if (a == 2)
 	{
 		perror(str);
-		if (str[0] == '.')
+		if (errno == 13)
+			exit(126);
+		if (access(str, X_OK | F_OK))
 			exit(127);
 		else
-			exit (126);
+			exit(126);
 	}
 	if (a == 3)
 	{
-		write(2, "minishell: ", 12);
+		write(2, "minishell: ", 11);
 		write(2, str, ft_strlen(str));
-		write (2, ": command not found\n", 21);
+		write (2, ": command not found\n", 20);
 	}
 	exit(127);
 }

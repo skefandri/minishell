@@ -10,7 +10,7 @@ SRC_MAN = minishell.c get_cmd_file.c utils_main.c ./utils/ft_split.c ./utils/ft_
 		./builtins/re_export.c ./builtins/cd.c ./builtins/pwd.c execution/paths.c execution/utils_child.c \
 		execution/utils_path.c ./builtins/utils_export.c ./src/utils_expand2.c ./src/utils_expand3.c ./src/utils_lexer.c ./src/utils_lexer2.c ./src/utils_lexer3.c ./builtins/msg_valid.c ./src/my_check.c ./execution/dup_built.c ./execution/utils_here_doc.c
 
-CFLAGS =  -lreadline -lcurses -L /Users/ysabr/Desktop/readline-8.2 -I /Users/ysabr/Desktop/readline-8.2 -Wextra -Werror -Wall  -fsanitize=address  -g3
+CFLAGS =  -lreadline -lcurses -L /Users/ysabr/Desktop/readline-8.2 -I /Users/ysabr/Desktop/readline-8.2 -Wextra -Werror -Wall 
 
 all : $(NAME)
 $(NAME) : $(SRC_MAN)
