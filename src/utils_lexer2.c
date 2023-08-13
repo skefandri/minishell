@@ -59,6 +59,6 @@ t_token	*init_tokens(void)
 
 void	skip_whitespace(char *line, int *i)
 {
-	while (line[*i] == ' ' || line[*i] == '\t')
+	while (line[*i] == '\n' || line[*i] == ' ' || line[*i] == '\t')
 		(*i)++;
 }

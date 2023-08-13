@@ -78,8 +78,9 @@ int	main(int ac, char **av, char **env)
 	t_context	context;
 	t_data		*data;
 
-	(void)ac;
 	(void)av;
+	if (ac != 1)
+		return (1);
 	init_globals(env);
 	while (1)
 	{

@@ -6,7 +6,7 @@
 /*   By: ysabr <ysabr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 08:43:25 by ysabr             #+#    #+#             */
-/*   Updated: 2023/08/03 23:04:54 by ysabr            ###   ########.fr       */
+/*   Updated: 2023/08/10 18:39:32 by ysabr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_flag(t_file *tmp)
 	return (flag);
 }
 
-char	*read_and_write(int flag, char *filename, int fd[2])
+void	read_and_write(int flag, char *filename, int fd[2])
 {
 	char	*str;
 	char	*pp;
@@ -62,6 +62,7 @@ char	*read_and_write(int flag, char *filename, int fd[2])
 		}
 		write(fd[1], str, ft_strlen(str));
 		write(fd[1], "\n", 1);
+		if (str)
+			free(str);
 	}
-	return (str);
 }

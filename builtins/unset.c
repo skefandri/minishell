@@ -6,7 +6,7 @@
 /*   By: ysabr <ysabr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 12:10:17 by ysabr             #+#    #+#             */
-/*   Updated: 2023/08/06 12:10:19 by ysabr            ###   ########.fr       */
+/*   Updated: 2023/08/11 08:39:56 by ysabr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ t_envs	*ft_lstlastt(t_envs *lst)
 	return (head);
 }
 
+void	print_message(char *str)
+{
+	ft_putstr_fd("minishell: unset:", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd(": not a valid identifier\n", 2);
+	return ;
+}
+
 void	ft_remove(char *str)
 {
 	t_envs	*del;
@@ -33,16 +41,13 @@ void	ft_remove(char *str)
 
 	tmp = g_lob.envs;
 	if (!is_valid_identifier(str))
-	{
-		printf("minishell: unset: `%s': not a valid identifier\n", str);
-		return ;
-	}
-	if (!ft_strcmp(tmp->env, str))
+		print_message(str);
+	if (tmp && !ft_strcmp(tmp->env, str))
 	{
 		g_lob.envs = tmp->next;
 		return ;
 	}
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
 		if (!ft_strcmp(tmp->next->env, str))
 		{

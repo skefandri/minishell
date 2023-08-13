@@ -6,7 +6,7 @@
 /*   By: ysabr <ysabr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 18:41:15 by ysabr             #+#    #+#             */
-/*   Updated: 2023/08/06 11:22:13 by ysabr            ###   ########.fr       */
+/*   Updated: 2023/08/10 18:39:34 by ysabr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	handle_child_process(int fd[2], t_file *tmp, int flag)
 {
-	char	*str;
-
 	signal(SIGINT, SIG_DFL);
 	close(fd[0]);
-	str = read_and_write(flag, tmp->filename, fd);
+	read_and_write(flag, tmp->filename, fd);
 	close(fd[1]);
 	exit(0);
 }

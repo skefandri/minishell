@@ -24,7 +24,8 @@ void	fill_token_content(char *line, t_token *token, int *i)
 		else if (c == line[*i])
 			c = 0;
 		if (c == 0 && (line[*i] == '<' || line[*i] == '>'
-				|| line[*i] == '|' || line[*i] == ' ' || line[*i] == '\t'))
+				|| line[*i] == '|' || line[*i] == ' '
+				|| line[*i] == '\t' || line[*i] == '\n'))
 			break ;
 		token->content = add_char(token->content, line[*i]);
 		(*i)++;

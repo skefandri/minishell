@@ -57,7 +57,10 @@ int	chdir_to(char *path)
 	}
 	p = chdir(path);
 	if (p)
+	{
 		perror(path);
+		g_lob.exit_status = 1;
+	}
 	return (p);
 }
 

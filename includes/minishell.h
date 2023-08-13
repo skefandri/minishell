@@ -112,6 +112,7 @@ typedef struct s_context
 	char		**env;
 }	t_context;
 
+void		ft_putstr_fd(char *s, int fd);
 int			handle_type_4(t_context *context, int count);
 void		handle_other_types(t_context *context);
 void		handle_type_3(t_context *context);
@@ -204,7 +205,7 @@ void		_env(char **env);
 // heredoc
 int			check_flag(t_file *tmp);
 int			iterate_files(t_data *lexer, int fd[2]);
-char		*read_and_write(int flag, char *filename, int fd[2]);
+void		read_and_write(int flag, char *filename, int fd[2]);
 int			here_document(t_data *lexer);
 // exec
 void		*my_malloc(size_t size);

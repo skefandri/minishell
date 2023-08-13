@@ -6,7 +6,7 @@
 /*   By: ysabr <ysabr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:59:21 by ysabr             #+#    #+#             */
-/*   Updated: 2023/08/04 09:57:07 by ysabr            ###   ########.fr       */
+/*   Updated: 2023/08/10 23:39:35 by ysabr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ long	str_to_uint(char *str)
 		if (!check_digit(str[i]))
 			printf_message(str);
 		result = result * 10 + (str[i] - '0');
-		if (pre > result)
+		if ((sign < 0 && (pre < result * sign)) || (pre > result && sign > 0))
 			printf_message(str);
-		pre = result;
+		pre = result * sign;
 	}
 	return (sign * result);
 }
